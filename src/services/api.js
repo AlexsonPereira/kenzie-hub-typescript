@@ -1,6 +1,10 @@
 import axios from 'axios'
 
-const api = axios.create({
-  baseUrl: 'https://kenziehub.herokuapp.com',
-  timeout: 5000
+export const api = axios.create({
+  baseURL: 'https://kenziehub.herokuapp.com',
+  timeout: 5000,
+  Headers: {
+    'Content-Type': 'application/json',
+    Authorization: `Bearer ${localStorage.getItem('@KenzieHub-Token')}`
+  }
 })

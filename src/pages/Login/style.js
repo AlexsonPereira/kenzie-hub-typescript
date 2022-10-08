@@ -2,7 +2,8 @@ import styled from 'styled-components'
 
 export const LoginPage = styled.div`
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
 
   background-color: var(--color-black);
 
@@ -15,6 +16,17 @@ export const LoginPage = styled.div`
     color: var(--color-primary);
     margin-bottom: 20px;
   }
+
+  .passInput {
+    position: relative;
+    svg {
+      position: absolute;
+      right: 15px;
+      top: 12px;
+      cursor: pointer;
+    }
+  }
+
   > div {
     background-color: var(--color-grey);
     width: 360px;
@@ -38,6 +50,12 @@ export const LoginPage = styled.div`
 
       h3 {
         text-align: center;
+      }
+
+      p {
+        color: red;
+        font-size: 12px;
+        margin-top: 5px;
       }
 
       input {

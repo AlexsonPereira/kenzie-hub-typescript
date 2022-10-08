@@ -14,6 +14,9 @@ const component = {
 
 export const RegisterPage = styled.div`
   width: 100vw;
+  min-height: 100vh;
+  height: 100%;
+
   background-color: var(--color-black);
 
   color: var(--color-white);
@@ -111,6 +114,12 @@ export const RegisterPage = styled.div`
           :hover {
             filter: brightness(50%);
           }
+        }
+
+        p {
+          color: red;
+          font-size: 12px;
+          margin-top: 5px;
         }
       }
     }
