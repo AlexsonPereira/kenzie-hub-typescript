@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Input = styled.input`
+export const InputPrimary = styled.input`
   height: 40px;
   border-radius: 5px;
   padding: 6px 16px;

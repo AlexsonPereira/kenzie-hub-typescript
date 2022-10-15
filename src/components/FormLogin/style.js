@@ -20,16 +20,6 @@ export const LoginFormStyle = styled.form`
     margin-top: 5px;
   }
 
-  input {
-    height: 40px;
-    border-radius: 5px;
-    padding: 6px 16px;
-    outline: none;
-    background-color: var(--color-grey-2);
-    border: 2px solid white;
-    color: var(--color-white);
-  }
-
   label {
     font-size: 12px;
     margin-bottom: 8px;

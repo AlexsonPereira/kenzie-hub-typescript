@@ -1,28 +1,11 @@
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { api } from '../../services/api'
-import { toast } from 'react-toastify'
-import { useNavigate } from 'react-router-dom'
 import { schema } from '../../validations/registerUser'
 import { FormRegisterStyle } from './style'
+import { RegisterContext } from '../../contexts/RegisterContext'
+import { useContext } from 'react'
 
 export const FormRegister = () => {
-  const navigate = useNavigate()
-
-  const sucess = () =>
-    toast.success('Cadastro feito com sucesso', {
-      position: 'top-right',
-      autoClose: 1500,
-      theme: 'dark'
-    })
-
-  const error = () =>
-    toast.error('Falha ao fazer cadastro', {
-      position: 'top-right',
-      autoClose: 1500,
-      theme: 'dark'
-    })
-
   const {
     register,
     handleSubmit,
@@ -31,20 +14,7 @@ export const FormRegister = () => {
     resolver: yupResolver(schema)
   })
 
-  const onSubmit = data => {
-    api
-      .post('/users', data)
-      .then(res => {
-        sucess()
-        setTimeout(() => {
-          navigate('/')
-        }, 1500)
-      })
-      .catch(err => {
-        error()
-        console.log(err)
-      })
-  }
+  const { onSubmit } = useContext(RegisterContext);
 
   return (
     <FormRegisterStyle onSubmit={handleSubmit(onSubmit)}>

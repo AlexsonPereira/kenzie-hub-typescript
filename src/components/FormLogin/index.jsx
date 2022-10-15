@@ -7,6 +7,7 @@ import { api } from "../../services/api"
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react"
 import { LoginFormStyle } from "./style";
+import { InputPrimary } from "../InputPrimary/style";
 
 export const FormLogin = () => {
    
@@ -63,13 +64,13 @@ export const FormLogin = () => {
          <h3>Inicio</h3>
          <div>
             <label>Email</label>
-            <input {...register("email")} type="email" />
+            <InputPrimary {...register("email")} placeholder="example@mail.com" type="email" />
             <p>{errors.email?.message}</p>      
          </div>
          <div>
             <label>Senha</label>
             <div className="passInput">
-               <input {...register("password")} type={type} /> 
+               <InputPrimary {...register("password")} type={type} placeholder="Digite sua senha" /> 
                {visible ?<BsEyeSlash onClick={() => ShowPassword()}/>:<BsEye onClick={() => ShowPassword()}/>} 
             </div>
             <p>{errors.password?.message}</p>
