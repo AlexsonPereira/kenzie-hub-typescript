@@ -40,7 +40,11 @@ export const RegisterPage = styled.div`
         color: var(--color-primary);
       }
 
-      button {
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
         background-color: var(--color-grey-3);
         border: none;
         color: var(--color-white);
@@ -66,60 +70,6 @@ export const RegisterPage = styled.div`
         span {
           color: var(--color-grey-1);
           font-size: 12px;
-        }
-      }
-
-      > form {
-        display: flex;
-        flex-direction: column;
-
-        label {
-          font-size: 12px;
-
-          margin-top: 10px;
-          margin-bottom: 10px;
-        }
-
-        input {
-          height: 40px;
-          border-radius: 5px;
-          padding: 6px 16px;
-          outline: none;
-          background-color: var(--color-grey-2);
-          color: var(--color-white);
-          border: none;
-        }
-
-        select {
-          height: 40px;
-          border-radius: 5px;
-          padding: 6px 16px;
-          outline: none;
-          background-color: var(--color-grey-2);
-          color: var(--color-white);
-          border: none;
-          margin-bottom: 20px;
-        }
-
-        button {
-          height: 40px;
-          border-radius: 4px;
-          border: none;
-          color: var(--color-white);
-          cursor: pointer;
-          font-weight: 500;
-          background-color: var(--color-primary-disable);
-          transition: 1s;
-
-          :hover {
-            filter: brightness(50%);
-          }
-        }
-
-        p {
-          color: red;
-          font-size: 12px;
-          margin-top: 5px;
         }
       }
     }
