@@ -4,6 +4,7 @@ import { schema } from '../../validations/registerUser'
 import { FormRegisterStyle } from './style'
 import { RegisterContext } from '../../contexts/RegisterContext'
 import { useContext } from 'react'
+import { SelectPrimary } from '../SelectPrimary/style'
 
 export const FormRegister = () => {
   const {
@@ -37,12 +38,12 @@ export const FormRegister = () => {
       <input {...register('contact')} placeholder="Opção de contato" id="contact" type="text" />
       <p>{errors.contact?.message}</p>
       <label htmlFor="module">Selecionar modulo</label>
-      <select {...register('course_module')} name="module" id="module">
+      <SelectPrimary {...register('course_module')} name="module" id="module">
         <option value="Primeiro módulo (Introdução ao Frontend)">Primeiro Modulo</option>
         <option value="Segundo módulo (Frontend Avançado)">Segundo Modulo</option>
         <option value="Terceiro módulo (Introdução ao Backend)">Terceiro Modulo</option>
         <option value="Quarto módulo (Backend Avançado)">Quarto Modulo</option>
-      </select>
+      </SelectPrimary>
       <button type="submit">Cadastrar</button>
     </FormRegisterStyle>
   )

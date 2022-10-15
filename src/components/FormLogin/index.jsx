@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react"
 import { LoginFormStyle } from "./style";
 import { InputPrimary } from "../InputPrimary/style";
+import { ButtonPrimary } from "../ButtonPrimary/style";
 
 export const FormLogin = () => {
    
@@ -75,7 +76,7 @@ export const FormLogin = () => {
             </div>
             <p>{errors.password?.message}</p>
          </div>
-         <button type="submit">Entrar</button>      
+         <ButtonPrimary type="submit">Entrar</ButtonPrimary>      
      </LoginFormStyle>
    )
 }

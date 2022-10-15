@@ -6,7 +6,7 @@ export const HomePage = styled.div`
   background-color: var(--color-black);
   color: var(--color-white);
 
-  header {
+  > header {
     border-bottom: 0.5px solid var(--color-grey-3);
 
     button {
@@ -46,8 +46,8 @@ export const HomePage = styled.div`
   }
 
   .DevelopContent {
-    div {
-      div {
+    > div:nth-child(1) {
+      > div {
         display: flex;
         flex-direction: column;
         gap: 20px;
