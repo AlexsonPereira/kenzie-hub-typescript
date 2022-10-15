@@ -38,57 +38,6 @@ export const LoginPage = styled.div`
       width: 250px;
     }
 
-    > form {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-
-      div {
-        display: flex;
-        flex-direction: column;
-      }
-
-      h3 {
-        text-align: center;
-      }
-
-      p {
-        color: red;
-        font-size: 12px;
-        margin-top: 5px;
-      }
-
-      input {
-        height: 40px;
-        border-radius: 5px;
-        padding: 6px 16px;
-        outline: none;
-        background-color: var(--color-grey-2);
-        border: 2px solid white;
-        color: var(--color-white);
-      }
-
-      label {
-        font-size: 12px;
-        margin-bottom: 8px;
-      }
-
-      button {
-        height: 40px;
-        border-radius: 4px;
-        border: none;
-        color: var(--color-white);
-        cursor: pointer;
-        font-weight: 500;
-        background-color: var(--color-primary);
-        transition: 1s;
-
-        :hover {
-          filter: brightness(50%);
-        }
-      }
-    }
-
     > div {
       display: flex;
       flex-direction: column;
@@ -101,9 +50,12 @@ export const LoginPage = styled.div`
         margin-bottom: 20px;
       }
 
-      button {
+      a {
         width: 100%;
         height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         border-radius: 4px;
         border: none;
         color: var(--color-white);
@@ -112,6 +64,8 @@ export const LoginPage = styled.div`
         background-color: var(--color-grey-1);
         margin-bottom: 20px;
         transition: 1s;
+        text-decoration: none;
+        text-align: center;
 
         :hover {
           filter: brightness(50%);

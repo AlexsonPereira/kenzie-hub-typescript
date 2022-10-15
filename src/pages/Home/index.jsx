@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { Logo } from "../../components/Logo"
+import { Modal } from "../../components/Modal"
+import { TechList } from "../../components/TechList"
 import { api } from "../../services/api"
 import { HomePage } from "./style"
 
 export const Home = () => {
    const [data,setData] = useState([])
    const navigate = useNavigate()
+   
    useEffect(()=>{
       if(!localStorage.getItem("@KenzieHub-Token")){  
          navigate("/")
@@ -42,13 +45,11 @@ export const Home = () => {
             </div>
             <div className="DevelopContent">
                <div className="container">
-                  <div>
-                     <h3>Que pena! Estamos em desenvolvimento :(</h3>
-                     <p>Nossa aplicação está em desenvolvimento, em breve teremos novidades</p>
-                  </div>
+                  <TechList/>
                </div>
             </div>
          </main>
+         <Modal/>  
       </HomePage>
    )
 }
