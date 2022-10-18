@@ -1,13 +1,13 @@
 import { useContext, useEffect } from "react"
 import { ModalTechContext } from "../../contexts/ModalContext"
+import { TechContext } from "../../contexts/TechContext"
 import { ItemTech } from "../ItemTech"
 import { TechContent } from "./style"
 
 export const TechList = ({}) => {
-   const {setShowModal,techs} = useContext(ModalTechContext)
-   useEffect(()=>{
-      console.log(techs)
-   },[techs])
+   const {techs,deleteTech} = useContext(TechContext)
+   const {setShowModal} = useContext(ModalTechContext)
+
 
    return (
       <TechContent>
@@ -17,10 +17,10 @@ export const TechList = ({}) => {
          </header>
          <ul>
             { techs.length != 0 ?
-            techs.map(item => <ItemTech techName={item.tech} level={item.level}/>)
-             :
+            techs.map(item => <ItemTech deleteTech={deleteTech} techName={item.title} level={item.status} key={item.id} id={item.id}/>)
+             : 
             <h3>Não tem tecnologias adicionadas</h3>
-            }  
+            } 
          </ul> 
       </TechContent>
    )

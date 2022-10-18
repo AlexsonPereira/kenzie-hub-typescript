@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const HomePage = styled.div`
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   background-color: var(--color-black);
   color: var(--color-white);
 
@@ -30,7 +30,7 @@ export const HomePage = styled.div`
 
         padding: 40px 0;
 
-        @media (max-width: 320px) {
+        @media (max-width: 380px) {
           flex-direction: column;
           justify-content: normal;
           align-items: normal;
@@ -52,10 +52,6 @@ export const HomePage = styled.div`
         flex-direction: column;
         gap: 20px;
         margin-top: 40px;
-
-        @media (max-width: 320px) {
-          display: none;
-        }
       }
     }
   }
@@ -64,7 +60,7 @@ export const HomePage = styled.div`
     width: 70%;
     margin: 0 auto;
 
-    @media (max-width: 320px) {
+    @media (max-width: 380px) {
       width: 90%;
     }
   }
