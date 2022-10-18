@@ -1,13 +1,13 @@
 import { BiTrash } from "react-icons/bi"
 import { LiTech } from "./style"
 
-export const ItemTech = ({techName,level}) => {
+export const ItemTech = ({techName,level,deleteTech,id}) => {
    return (
-      <LiTech>
+      <LiTech key={id}>
          <h4>{techName}</h4>
          <div>
             <p>{level}</p>
-            <BiTrash/>
+            <BiTrash onClick={()=> deleteTech(id)}/>
          </div>
       </LiTech>
    )

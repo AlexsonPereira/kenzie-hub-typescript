@@ -22,5 +22,8 @@ export const TechContent = styled.div`
     background-color: var(--color-grey);
     border-radius: 4px;
     padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
   }
 `

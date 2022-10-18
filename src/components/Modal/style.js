@@ -36,6 +36,11 @@ export const ModalStyle = styled.div`
       flex-direction: column;
       gap: 15px;
 
+      .yup {
+        color: var(--color-primary);
+        font-size: 12px;
+      }
+
       > div {
         display: flex;
         flex-direction: column;

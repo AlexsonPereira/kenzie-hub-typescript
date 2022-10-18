@@ -1,12 +1,15 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { Logo } from "../../components/Logo"
 import { Modal } from "../../components/Modal"
 import { TechList } from "../../components/TechList"
+import { ModalTechContext } from "../../contexts/ModalContext"
 import { api } from "../../services/api"
 import { HomePage } from "./style"
 
 export const Home = () => {
+
+   const {showModal, setShowModal} = useContext(ModalTechContext)
    const [data,setData] = useState([])
    const navigate = useNavigate()
    
@@ -49,7 +52,11 @@ export const Home = () => {
                </div>
             </div>
          </main>
+         {showModal ? 
          <Modal/>  
+         :
+         <></>
+         } 
       </HomePage>
    )
 }
