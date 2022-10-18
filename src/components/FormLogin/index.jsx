@@ -9,7 +9,7 @@ import { LoginContext } from "../../contexts/LoginContext";
 import { useContext } from "react";
 
 export const FormLogin = () => {
-   const {onSubmit,type,visible,ShowPassword} = useContext(LoginContext)
+   const {onSubmit,type,visible,showPassword} = useContext(LoginContext)
    const { register, handleSubmit, formState:{ errors } } = useForm({
       resolver: yupResolver(schema)
     });
@@ -26,7 +26,7 @@ export const FormLogin = () => {
             <label>Senha</label>
             <div className="passInput">
                <InputPrimary {...register("password")} type={type} placeholder="Digite sua senha" /> 
-               {visible ?<BsEyeSlash onClick={() => ShowPassword()}/>:<BsEye onClick={() => ShowPassword()}/>} 
+               {visible ? <BsEyeSlash onClick={() => showPassword()}/> : <BsEye onClick={() => showPassword()}/>} 
             </div>
             <p>{errors.password?.message}</p>
          </div>

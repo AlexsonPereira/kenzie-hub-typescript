@@ -13,11 +13,13 @@ function App() {
       <ToastContainer/>
       <GlobalStyle/>
       <RegisterProvider>
+        <LoginProvider>
           <TechProvider>
             <ModalTechProvider>
               <RoutesMain/> 
             </ModalTechProvider>
           </TechProvider>
+        </LoginProvider>
       </RegisterProvider>
     </>
   )
