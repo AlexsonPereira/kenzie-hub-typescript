@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react"
+import { useContext } from "react"
 import { ModalTechContext } from "../../contexts/ModalContext"
 import { TechContext } from "../../contexts/TechContext"
 import { ItemTech } from "../ItemTech"
