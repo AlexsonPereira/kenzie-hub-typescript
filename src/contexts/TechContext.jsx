@@ -29,7 +29,7 @@ export const TechProvider = ({children}) => {
       const token = localStorage.getItem('@KenzieHub-Token')
       api.defaults.headers.authorization = `Bearer ${token}`;
       api.delete(`/users/techs/${id}`)
-      .then(res => {
+      .then(() => {
          sucess('Tecnologia removida com sucesso')
           api.get("/profile")
           .then(res => {
