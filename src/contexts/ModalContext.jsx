@@ -7,7 +7,7 @@ export const ModalTechContext = createContext({})
 
 const ModalTechProvider = ({children}) => {
    const {techs, setTechs} = useContext(TechContext)
-   const [showModal, setShowModal] = useState(null)
+   const [showModal, setShowModal] = useState<boolean | null>(null)
    const onSubmit = data => addTech(data)
    function addTech(data) {
       api.post("/users/techs",data)

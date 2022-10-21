@@ -37,7 +37,7 @@ export const RegisterProvider = ({ children }) => {
         })
     }
   return (
-  <RegisterContext.Provider value={{onSubmit}}>
+  <RegisterContext.Provider value={{onsubmit}}>
     {children}
   </RegisterContext.Provider>
   )       
