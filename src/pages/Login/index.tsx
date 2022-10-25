@@ -7,7 +7,7 @@ import { FormLogin } from "../../components/FormLogin"
 export const Login = () => {
    return (
       <LoginPage>
-         <Logo>Kenzie Hub</Logo>
+         <Logo/>
          <div>
             <FormLogin/>
             <div>

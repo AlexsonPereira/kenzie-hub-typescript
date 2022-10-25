@@ -1,11 +1,29 @@
-import { createContext } from 'react'
+import { createContext, ReactNode } from 'react'
 import { api } from  "../services/api"
 import { toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
 
-export const RegisterContext = createContext({})
+interface iRegisterProps {
+  children : ReactNode
+}
 
-export const RegisterProvider = ({ children }) => {
+interface iRegisterData {
+  name: string;
+  email: string;
+  password: string;
+  confirmPassword : string;
+  bio: string;
+  contact: string;
+  module: string
+}
+
+interface IRegisterContext {
+  onSubmit : any
+}
+
+export const RegisterContext = createContext<IRegisterContext>({} as IRegisterContext)
+
+export const RegisterProvider = ({ children }:iRegisterProps) => {
   const navigate = useNavigate()
 
   const sucess = () =>
@@ -22,7 +40,7 @@ export const RegisterProvider = ({ children }) => {
       theme: 'dark'
     })
 
-    const onSubmit = data => {
+    const onSubmit = (data:iRegisterData) => {
       api
         .post('/users', data)
         .then(res => {
@@ -37,7 +55,7 @@ export const RegisterProvider = ({ children }) => {
         })
     }
   return (
-  <RegisterContext.Provider value={{onsubmit}}>
+  <RegisterContext.Provider value={{onSubmit}}>
     {children}
   </RegisterContext.Provider>
   )       

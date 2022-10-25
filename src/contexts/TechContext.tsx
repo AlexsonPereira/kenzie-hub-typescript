@@ -1,14 +1,29 @@
-import { createContext, useContext, useEffect, useState } from "react";
-import { toast } from "react-toastify";
+import { createContext, ReactNode, useContext, useEffect, useState } from "react";
 import { api } from "../services/api";
 import { sucess } from "../toast";
 import { ModalTechContext } from "./ModalContext";
 
-export const TechContext = createContext({})
+interface ITechProviderProps {
+   children : ReactNode
+}
 
-export const TechProvider = ({children}) => {
+export interface ITech{
+   id: number
+   title: string; 
+   status : string;
+}
+
+interface ITechContext {
+   techs : ITech[];
+   deleteTech : (id:string) => void;
+   setTechs : React.Dispatch<React.SetStateAction<ITech[]>>
+}
+
+export const TechContext = createContext<ITechContext>({} as ITechContext)
+
+export const TechProvider = ({children}:ITechProviderProps) => {
    const {} = useContext(ModalTechContext)
-   const [techs, setTechs] = useState([])
+   const [techs, setTechs] = useState<ITech[]>([])
    
 
    useEffect(()=>{
@@ -25,7 +40,7 @@ export const TechProvider = ({children}) => {
       loadTechs()
    },[])
 
-   const deleteTech = (id) => {
+   const deleteTech = (id:string) => {
       const token = localStorage.getItem('@KenzieHub-Token')
       api.defaults.headers.authorization = `Bearer ${token}`;
       api.delete(`/users/techs/${id}`)

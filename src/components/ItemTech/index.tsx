@@ -1,7 +1,15 @@
+import { ReactElement } from "react";
 import { BiTrash } from "react-icons/bi"
 import { LiTech } from "./style"
 
-export const ItemTech = ({techName,level,deleteTech,id}) => {
+interface IItemProp {
+   techName: string;
+   level : string;
+   deleteTech : (id:number | any ) => void
+   id : number
+}
+
+export const ItemTech = ({techName,level,deleteTech,id}:IItemProp) => {
    return (
       <LiTech key={id}>
          <h4>{techName}</h4>

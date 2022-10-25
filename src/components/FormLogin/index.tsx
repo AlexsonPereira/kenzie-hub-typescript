@@ -8,9 +8,14 @@ import { ButtonPrimary } from "../ButtonPrimary/style";
 import { LoginContext } from "../../contexts/LoginContext";
 import { useContext } from "react";
 
+interface IFormLogin {
+   email: string;
+   password: string;
+ }
+
 export const FormLogin = () => {
    const {onSubmit,type,visible,showPassword} = useContext(LoginContext)
-   const { register, handleSubmit, formState:{ errors } } = useForm({
+   const { register, handleSubmit, formState:{ errors }} = useForm<IFormLogin>({
       resolver: yupResolver(schema)
     });
 
