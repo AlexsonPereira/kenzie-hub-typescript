@@ -1,15 +1,25 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, ReactNode, useContext, useState } from "react";
 import { toast } from "react-toastify";
 import { api } from "../services/api";
-import { TechContext } from "./TechContext";
+import { ITech, TechContext } from "./TechContext";
 
-export const ModalTechContext = createContext({})
+interface IModalProviderProps {
+   children: ReactNode
+}
 
-const ModalTechProvider = ({children}) => {
+interface IModalContext {
+   showModal : any
+   setShowModal : any
+   onSubmit : any
+}
+
+export const ModalTechContext = createContext<IModalContext>({} as IModalContext)
+
+const ModalTechProvider = ({children}:IModalProviderProps) => {
    const {techs, setTechs} = useContext(TechContext)
-   const [showModal, setShowModal] = useState(null)
-   const onSubmit = data => addTech(data)
-   function addTech(data) {
+   const [showModal, setShowModal] = useState<boolean | null>(null)
+   const onSubmit = (data:ITech) => addTech(data)
+   function addTech(data:ITech) {
       api.post("/users/techs",data)
       .then(res => {
          toast.success('Tecnologia adicionada com sucesso', {

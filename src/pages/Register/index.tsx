@@ -8,7 +8,7 @@ export const Register = () => {
       <RegisterPage>
          <div>
             <div>
-               <Logo>Kenzie Hub</Logo>
+               <Logo/>
                <Link to={"/"}>
                   Voltar
                </Link>

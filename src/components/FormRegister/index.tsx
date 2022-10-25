@@ -6,12 +6,23 @@ import { RegisterContext } from '../../contexts/RegisterContext'
 import { useContext } from 'react'
 import { SelectPrimary } from '../SelectPrimary/style'
 
+interface IRegisterForm {
+  name: string;
+  email: string;
+  password: string;
+  confirmPassword : string;
+  bio: string;
+  contact: string;
+  course_module: string;
+
+}
+
 export const FormRegister = () => {
   const {
     register,
     handleSubmit,
     formState: { errors }
-  } = useForm({
+  } = useForm<IRegisterForm>({
     resolver: yupResolver(schema)
   })
 

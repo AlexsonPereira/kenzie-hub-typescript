@@ -9,6 +9,12 @@ import { InputPrimary } from "../InputPrimary/style"
 import { SelectPrimary } from "../SelectPrimary/style"
 import { ModalStyle } from "./style"
 
+interface IModalTech {
+   title : string;
+   status : string;
+
+}
+
 export const Modal = ({}) => {
 
    const {setShowModal,onSubmit} = useContext(ModalTechContext)
@@ -16,7 +22,7 @@ export const Modal = ({}) => {
         register,
         handleSubmit,
         formState: { errors }
-      } = useForm({
+      } = useForm<IModalTech>({
         resolver: yupResolver(schema)
       })
 

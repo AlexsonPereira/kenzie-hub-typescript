@@ -32,7 +32,7 @@ export const Home = () => {
          <header>
             <div className="container">
                <div className="header">
-                  <Logo>Kenzie Hub</Logo>
+                  <Logo/>
                   <button onClick={logout} type="button">Sair</button>
                </div>
             </div>
