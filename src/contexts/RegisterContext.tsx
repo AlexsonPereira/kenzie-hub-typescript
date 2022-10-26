@@ -14,11 +14,11 @@ interface iRegisterData {
   confirmPassword : string;
   bio: string;
   contact: string;
-  module: string
+  course_module: string
 }
 
 interface IRegisterContext {
-  onSubmit : any
+  onSubmitRegister : (data: iRegisterData) => void
 }
 
 export const RegisterContext = createContext<IRegisterContext>({} as IRegisterContext)
@@ -40,7 +40,7 @@ export const RegisterProvider = ({ children }:iRegisterProps) => {
       theme: 'dark'
     })
 
-    const onSubmit = (data:iRegisterData) => {
+    const onSubmitRegister = (data:iRegisterData) => {
       api
         .post('/users', data)
         .then(res => {
@@ -55,7 +55,7 @@ export const RegisterProvider = ({ children }:iRegisterProps) => {
         })
     }
   return (
-  <RegisterContext.Provider value={{onSubmit}}>
+  <RegisterContext.Provider value={{onSubmitRegister}}>
     {children}
   </RegisterContext.Provider>
   )       

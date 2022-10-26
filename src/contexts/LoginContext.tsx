@@ -13,7 +13,7 @@ interface iLoginProps {
  }
 
 interface ILoginContext{
-   onSubmit : any;
+   onSubmit : (data: iUser) => void;
    type : string;
    visible : boolean;
    showPassword : () => void; 

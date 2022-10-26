@@ -26,10 +26,10 @@ export const FormRegister = () => {
     resolver: yupResolver(schema)
   })
 
-  const { onSubmit } = useContext(RegisterContext);
+  const { onSubmitRegister } = useContext(RegisterContext);
 
   return (
-    <FormRegisterStyle onSubmit={handleSubmit(onSubmit)}>
+    <FormRegisterStyle onSubmit={handleSubmit(onSubmitRegister)}>
       <label htmlFor="name">Nome</label>
       <input {...register('name')} placeholder="Digite aqui seu nome" id="name" type="text" />
       <p>{errors.name?.message}</p>

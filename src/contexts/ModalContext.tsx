@@ -8,9 +8,9 @@ interface IModalProviderProps {
 }
 
 interface IModalContext {
-   showModal : any
-   setShowModal : any
-   onSubmit : any
+   showModal : boolean | null
+   setShowModal : React.Dispatch<React.SetStateAction<boolean | null>>
+   onSubmit : (data: ITech) => void
 }
 
 export const ModalTechContext = createContext<IModalContext>({} as IModalContext)
