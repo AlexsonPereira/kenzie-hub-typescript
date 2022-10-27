@@ -19,6 +19,10 @@ interface ITechContext {
    setTechs : React.Dispatch<React.SetStateAction<ITech[]>>
 }
 
+interface ITechResponse {
+   techs : ITech[]
+}
+
 export const TechContext = createContext<ITechContext>({} as ITechContext)
 
 export const TechProvider = ({children}:ITechProviderProps) => {
@@ -31,8 +35,8 @@ export const TechProvider = ({children}:ITechProviderProps) => {
          try {
             const token = localStorage.getItem('@KenzieHub-Token')
             api.defaults.headers.authorization = `Bearer ${token}`;
-            const data = await api.get("/profile")
-            setTechs(data.data.techs)
+            const {data} = await api.get<ITechResponse>("/profile")
+            setTechs(data.techs)
          } catch (error) {
             console.log(error)         
          }       
@@ -46,7 +50,7 @@ export const TechProvider = ({children}:ITechProviderProps) => {
       api.delete(`/users/techs/${id}`)
       .then(() => {
          sucess('Tecnologia removida com sucesso')
-          api.get("/profile")
+          api.get<ITechResponse>("/profile")
           .then(res => {
             setTechs(res.data.techs)
           })

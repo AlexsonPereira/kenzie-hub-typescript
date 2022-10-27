@@ -19,6 +19,13 @@ interface ILoginContext{
    showPassword : () => void; 
 
 }
+
+interface ILoginResponse {
+   user : {
+      id: string
+   }
+   token : string
+}
  
 
 export const LoginContext = createContext<ILoginContext>({} as ILoginContext)
@@ -36,7 +43,7 @@ export const LoginProvider = ({children}:iLoginProps) => {
    },[])
 
    const onSubmit = (data:iUser) => {
-      api.post("/sessions", data)
+      api.post<ILoginResponse>("/sessions", data)
       .then(res => {
          sucess("Sucesso ao realizar login")
          localStorage.setItem("@KenzieHub-Token",res.data.token)

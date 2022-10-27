@@ -21,6 +21,13 @@ interface IRegisterContext {
   onSubmitRegister : (data: iRegisterData) => void
 }
 
+interface IRegisterResponse {
+  id: string;
+  name: string;
+  email: string;
+  bio: string;
+}
+
 export const RegisterContext = createContext<IRegisterContext>({} as IRegisterContext)
 
 export const RegisterProvider = ({ children }:iRegisterProps) => {
@@ -42,7 +49,7 @@ export const RegisterProvider = ({ children }:iRegisterProps) => {
 
     const onSubmitRegister = (data:iRegisterData) => {
       api
-        .post('/users', data)
+        .post<IRegisterResponse>('/users', data)
         .then(res => {
           sucess()
           setTimeout(() => {

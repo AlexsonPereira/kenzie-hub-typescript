@@ -13,6 +13,16 @@ interface IModalContext {
    onSubmit : (data: ITech) => void
 }
 
+interface IModalCreateResponse {
+   status: string;
+   message: string;
+}
+
+interface IModalResponse {
+   techs: ITech[]
+}
+
+
 export const ModalTechContext = createContext<IModalContext>({} as IModalContext)
 
 const ModalTechProvider = ({children}:IModalProviderProps) => {
@@ -20,7 +30,7 @@ const ModalTechProvider = ({children}:IModalProviderProps) => {
    const [showModal, setShowModal] = useState<boolean | null>(null)
    const onSubmit = (data:ITech) => addTech(data)
    function addTech(data:ITech) {
-      api.post("/users/techs",data)
+      api.post<IModalCreateResponse>("/users/techs",data)
       .then(res => {
          toast.success('Tecnologia adicionada com sucesso', {
             position: 'top-right',
@@ -28,7 +38,7 @@ const ModalTechProvider = ({children}:IModalProviderProps) => {
             theme: 'dark'
           })
           setShowModal(false)
-         api.get("/profile")
+         api.get<IModalResponse>("/profile")
          .then(res => setTechs(res.data.techs))
       })
       .catch(err => console.log(err))
